@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js" ></script>  
+<script src = "https://cdn.zingchart.com/zingchart.min.js" ></script>  
+<script src = "https://cdn.zingchart.com/angular/zingchart-angularjs.js" ></script> 
+<script src="graph.css"></script>
+<script src="maps.css"></script>
+<script src="https://code.angularjs.org/1.5.0/angular-resource.min.js"></script>
+<script src="angular.maps.js"></script>
+<script src="app.js"></script>
+<script src="main.ctrl.js"></script>
+
+
+
+</head>
+<body ng-app='myApp' ng-controller="MainController">
+
+<button ng-click="getData()" >
+  Get data
+</button>
+<button ng-click="location1()"> locate </button>
+<table>
+<tr>
+<th>Name</th>
+<th>marks</th>
+<th> Address</th>
+<th>           </th>
+  <tr ng-repeat="x in person">
+    <td>{{ x.name }}</td>
+    <td>{{ x.marks }}</td>
+    <td>{{ x.longitude }}</td>
+    <td>{{ x.latitude }}</td>
+   <td> <button ng-click="location(x.longitude,x.latitude)"> locate </button></td>	
+    
+  </tr>
+</table>
+<zingchart id = "myChart" zc-json = "myJson" zc-height = 500 zc-width = 600 ></zingchart>  
+</body>
+</html>
